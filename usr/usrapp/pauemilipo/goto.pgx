@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<programList xmlns="ProgramNameSpace">
+  <program name="goto" public="true">
+    <description />
+    <paramSection>
+      <param name="place" type="point" byVal="true" />
+    </paramSection>
+    <localSection />
+    <source>
+      <code>begin
+//// Funció per anar fins a un punt ràpidament
+//// i baixar a poc a poc per no fer malbé res
+  mNomSpeed.leave = 10
+  mNomSpeed.reach = 10
+  mNomSpeed.vel = 100
+  movej(appro(place,{0,0,-40,0,0,0}),flange,mNomSpeed)
+  waitEndMove()
+  mNomSpeed.vel = 40
+  movej(appro(place,{0,0,4.4,0,0,0}),flange,mNomSpeed)
+  waitEndMove()
+end</code>
+    </source>
+  </program>
+</programList>

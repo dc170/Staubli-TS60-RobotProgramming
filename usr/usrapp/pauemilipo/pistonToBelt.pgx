@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<programList xmlns="ProgramNameSpace">
+  <program name="pistonToBelt" public="true">
+    <description />
+    <paramSection />
+    <localSection />
+    <source>
+      <code>begin
+////Funció de transport de peça pisto a cinta
+////considerant que n'hi ha una.
+  dioLink(ext_arm_xucla,io:bOut8)
+  dioLink(ext_arm_bufa,io:bOut9)
+  dioLink(ext_arm_mov_pst,io:bOut10)
+  dioLink(ext_arm_mov_cnt,io:bOut11)
+  //El braç extern transporta la peça a la cinta_action
+  
+  ext_arm_mov_pst = true
+  delay(4)
+  ext_arm_mov_pst = false
+  ext_arm_xucla = true
+  ext_arm_mov_cnt = true
+  delay(2)
+  call pistonAction()
+  ext_arm_mov_cnt = false
+  ext_arm_xucla = false
+  ext_arm_bufa = true
+  ext_arm_mov_pst = true
+  delay (1)
+  ext_arm_bufa = false
+  ext_arm_mov_pst = false
+end</code>
+    </source>
+  </program>
+</programList>

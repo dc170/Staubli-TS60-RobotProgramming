@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<programList xmlns="ProgramNameSpace">
+  <program name="putPiece" public="true">
+    <description />
+    <paramSection>
+      <param name="origen" type="point" byVal="true" />
+      <param name="desti" type="point" byVal="true" />
+    </paramSection>
+    <localSection />
+    <source>
+      <code>begin
+////Funció per a situar la peça allà on pertoca
+//// Se li passa l' origen i el destí
+    call goto(origen)
+    //taskKill() //espera que acabi goto()
+    xuclador = true
+    delay(0.2)
+    movej(appro(origen,{0,0,-40,0,0,0}),flange,mNomSpeed)
+    waitEndMove()
+    call goto(desti)
+    xuclador = false
+    bufador = true
+    delay(0.2)
+     movej(appro(desti,{0,0,-40,0,0,0}),flange,mNomSpeed)
+    waitEndMove()
+    bufador = false
+end</code>
+    </source>
+  </program>
+</programList>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<programList xmlns="ProgramNameSpace">
+  <program name="start" public="false">
+    <description />
+    <paramSection />
+    <localSection>
+      <local name="metalPosition" type="point" size="3" />
+      <local name="nometalPosition" type="point" size="3" />
+      <local name="mpos" type="num" size="1" />
+      <local name="nmpos" type="num" size="1" />
+    </localSection>
+    <source>
+      <code>begin
+  userPage()
+  cls()
+  putln("-- RUN PROGRAM --")
+  enablePower()
+  
+  
+
+  //DEFINICIÓ DE VARIABLES I LINKS GLOBALS
+
+  ////Create links with In(s)
+  dioLink(cinta_piece_1,io:bIn1)
+  dioLink(isMetal,io:bIn2)
+  dioLink(cinta_piece_2,io:bIn3)
+  dioLink(piston_piece,io:bIn15)
+  
+  ////Create links with Out(s)
+  dioLink(xuclador,io:bOut0)
+  dioLink(bufador,io:bOut1)
+  dioLink(cinta_action,io:bOut2)
+  dioLink(desv_1_action,io:bOut3)
+  dioLink(desv_2_action,io:bOut4)
+  dioLink(pass_action,io:bOut5)
+  dioLink(piston_action,io:bOut7)
+  dioLink(ext_arm_xucla,io:bOut8)
+  dioLink(ext_arm_bufa,io:bOut9)
+  dioLink(ext_arm_mov_pst,io:bOut10)
+  dioLink(ext_arm_mov_cnt,io:bOut11)
+  
+  //// moviment decriptor mNomSpeed setting
+  mNomSpeed.leave = 10
+  mNomSpeed.reach = 10
+  
+  //// Variables Globals
+  waiting_Metal = 0
+  waiting_NoMetal = 0
+
+  // PROGRAMA PRINCIPAL
+
+  //Definició d'array de posicions
+  //metalPosition = {bm1, bm2, bm3}
+  metalPosition[0] = bm1
+  metalPosition[1] = bm2
+  metalPosition[2] = bm3
+  mpos = 0
+
+  //nometalPosition = {bb1, bb2, bb3}
+  nometalPosition[0] = bp1
+  nometalPosition[1] = bp2
+  nometalPosition[2] = bp3
+  nmpos = 0
+
+  call pistonAction() 
+  //Moviment del pistó inicial per detectar peça amb "piston_piece"
+  
+  //Fem els moviments fins que s'acabin les peces del pistó
+  while piston_piece == false
+    //passem la peça del pistó a la cinta
+    putln("- Passem Peça de pistó a cinta")
+    call pistonToBelt()
+    // Envia a un tobogan o a un altre depenent de si és metàlic
+    if cinta_piece_1 == true or cinta_piece_2 == true
+      putln("-- La cinta ha trobat una peça!")
+      cinta_action = true
+      if isMetal == true
+        putln("--- I és de metall, obrim el desvio 1")
+        desv_1_action = true
+        waiting_Metal = waiting_Metal + 1
+      else 
+        putln("--- I és de plàstic, obrim el desvio 2")
+        desv_2_action = true
+        waiting_NoMetal = waiting_NoMetal + 1
+      endIf
+      pass_action = true
+      delay(4)
+      putln("-- Tanquem tots els devios")
+      pass_action = desv_1_action = desv_2_action = false
+    endIf
+    
+    if waiting_Metal &gt; 0
+      putln("- Hi ha peces de metall esperant i les anem a buscar")
+      if mpos &lt; size(metalPosition)
+        call putPiece(bb3,metalPosition[mpos])
+        waiting_Metal = waiting_Metal - 1
+        mpos = mpos + 1
+      endIf
+    elseIf waiting_NoMetal &gt; 0
+      putln("- Hi ha peces de plastic esperant i les anem a buscar")
+      if mpos &lt; size(nometalPosition)
+        call putPiece(bb2,nometalPosition[nmpos])
+        waiting_NoMetal = waiting_NoMetal - 1
+        nmpos = nmpos + 1
+      endIf
+    endIf
+    
+    //call pistonAction()
+  endWhile
+end
+
+
+      </code>
+    </source>
+  </program>
+</programList>

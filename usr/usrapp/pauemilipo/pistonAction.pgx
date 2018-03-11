@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<programList xmlns="ProgramNameSpace">
+  <program name="pistonAction" public="true">
+    <description />
+    <paramSection />
+    <localSection />
+    <source>
+      <code>begin
+////Funció que activa el pistó (2 segons)
+  dioLink(piston_action,io:bOut7)
+  piston_action = true
+  delay(2)
+  piston_action = false
+end</code>
+    </source>
+  </program>
+</programList>

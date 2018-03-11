@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataList xmlns="DataNameSpace">
+  <aioSection />
+  <boolSection />
+  <configRsSection />
+  <configSection />
+  <dioSection>
+    <dio size="1" name="xuclador" public="false" />
+    <dio size="1" name="bufador" public="false" />
+    <dio size="1" name="piston_action" public="false" />
+    <dio size="1" name="piston_piece" public="false" />
+    <dio size="1" name="cinta_piece_1" public="false" />
+    <dio size="1" name="isMetal" public="false" />
+    <dio size="1" name="cinta_piece_2" public="false" />
+    <dio size="1" name="cinta_action" public="false" />
+    <dio size="1" name="desv_1_action" public="false" />
+    <dio size="1" name="desv_2_action" public="false" />
+    <dio size="1" name="pass_action" public="false" />
+    <dio size="1" name="ext_arm_xucla" public="false" />
+    <dio size="1" name="ext_arm_bufa" public="false" />
+    <dio size="1" name="ext_arm_mov_pst" public="false" />
+    <dio size="1" name="ext_arm_mov_cnt" public="false" />
+  </dioSection>
+  <frameSection>
+    <frame name="world" public="false">
+      <fFather alias="" name="" fatherIndex="0" />
+      <valueFrame index="0">
+        <tfValue x="0" y="0" z="0" rx="0" ry="0" rz="0" />
+      </valueFrame>
+    </frame>
+  </frameSection>
+  <jointRsSection />
+  <jointSection />
+  <mdescSection>
+    <mdesc name="mNomSpeed" public="true">
+      <valueMdesc index="0">
+        <mdescValue accel="100" vel="100" decel="100" tmax="99999" rmax="99999" blend="joint" leave="50" reach="50" />
+      </valueMdesc>
+    </mdesc>
+  </mdescSection>
+  <numSection>
+    <num name="waiting_Metal" public="false">
+      <valueNum value="0" index="0" />
+    </num>
+    <num name="waiting_NoMetal" public="false">
+      <valueNum value="0" index="0" />
+    </num>
+  </numSection>
+  <pointRsSection>
+    <pointRs name="bb1" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="60.281466" y="372.013388" z="46.154481" rx="-180" ry="0" rz="44.228817" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bb2" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="58.38" y="453.61" z="46.154481" rx="-180" ry="0" rz="44.229903" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bb3" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="58.380351" y="530.833665" z="45.899935" rx="-180" ry="0" rz="44.230658" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bm1" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="475.635791" y="-83.248331" z="34.428044" rx="-180" ry="0" rz="44.232159" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bm2" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="408.676853" y="-82.947584" z="34.428044" rx="-180" ry="0" rz="44.231069" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bm3" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="339.246243" y="-82.94763" z="34.428044" rx="-180" ry="0" rz="44.230244" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bp1" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="481.342177" y="94.66746" z="34.428044" rx="-180" ry="0" rz="44.231379" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bp2" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="410.80382" y="94.667425" z="34.428044" rx="-180" ry="0" rz="44.230239" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+    <pointRs name="bp3" public="false">
+      <pRsFather alias="" name="world" fatherIndex="0" />
+      <valuePointRs index="0">
+        <tpRsValue x="339.833603" y="94.667342" z="34.428044" rx="-180" ry="0" rz="44.229193" />
+        <cpRsValue shoulder="ssame" />
+      </valuePointRs>
+    </pointRs>
+  </pointRsSection>
+  <pointSection />
+  <sioSection />
+  <stringSection />
+  <toolSection>
+    <tool name="flange" public="false">
+      <tFather alias="" name="" fatherIndex="0" />
+      <valueTool index="0">
+        <ttValue x="0" y="0" z="0" rx="0" ry="0" rz="0" />
+        <io alias="io" name="valve1" ioIndex="0" open="0" close="0" />
+      </valueTool>
+    </tool>
+  </toolSection>
+  <trsfSection />
+</dataList>
